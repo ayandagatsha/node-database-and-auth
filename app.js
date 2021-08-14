@@ -81,7 +81,7 @@ app.post("/register", function(req,res){
 User.register({username: req.body.username}, req.body.password, function(err,user){
 
   if(err){console.log(err);
-  res.redirect("https://morning-waters-14017.herokuapp.com")}
+   res.redirect("/register")}
   else {
     passport.authenticate("local")(req,res, function(){
       res.redirect("/secrets")
@@ -123,7 +123,7 @@ const user = new User({
 req.login(user, function(err){
   if (err){console.log(err)} else{
     passport.authenticate("local")(req,res,function(){
-  res.redirect("https://morning-waters-14017.herokuapp.com")};
+      res.redirect("/secrets");
     })
   }
 })
